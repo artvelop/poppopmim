@@ -19,12 +19,8 @@ def execute():
     with sd.Stream(callback=print_sound):
       sd.sleep(duration * 5000)
 
-
-
 def onStartPopCat():
-  voiceCheckThread = threading.Thread(target=execute)
-  voiceCheckThread.start()
-
+  root.voiceCheckThread.start()
   changePopCatMotion()
 
 def changePopCatMotion():
@@ -32,11 +28,11 @@ def changePopCatMotion():
     if root.popCatStatus == True:
       popCatLabel.configure(image=root.popCat1)
       root.popCatStatus = False
-      time.sleep(0.03)
+      time.sleep(0.05)
     else:
       popCatLabel.configure(image=root.popCat2)
       root.popCatStatus = True
-      time.sleep(0.03)
+      time.sleep(0.05)
   else:
     popCatLabel.configure(image=root.popCat2)
     root.popCatStatus = True
@@ -48,7 +44,7 @@ def changePopCat():
   popCatLabel.configure(image=root.popCat1)
 
 root = tkinter.Tk()
-root.title('blog')
+root.title('말하는 빱빱이')
 root.geometry('560x420')
 root.resizable(True, True)
 
@@ -60,12 +56,14 @@ popCat2 = './resource/popcat2.gif'
 root.popCat1 = ImageTk.PhotoImage(Image.open(popCat1))
 root.popCat2 = ImageTk.PhotoImage(Image.open(popCat2))
 
+root.voiceCheckThread = threading.Thread(target=execute)
+
 popCatLabel = tkinter.Label(root, image = root.popCat2)
 
-popButton = tkinter.Button(root, text='start', command=onStartPopCat)
+startButton = tkinter.Button(root, text='start', command=onStartPopCat)
 
-popButton.pack()
+startButton.pack()
+stopButton.pack()
 popCatLabel.pack()
-
 
 root.mainloop()

@@ -9,3 +9,5 @@
 + brew install portaudio
 + pip3 install sounddevice
 + pip3 install pillow
+
+![캡처](/resource/intro.gif)

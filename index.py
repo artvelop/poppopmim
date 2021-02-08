@@ -63,7 +63,6 @@ popCatLabel = tkinter.Label(root, image = root.popCat2)
 startButton = tkinter.Button(root, text='start', command=onStartPopCat)
 
 startButton.pack()
-stopButton.pack()
 popCatLabel.pack()
 
 root.mainloop()

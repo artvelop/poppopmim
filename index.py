@@ -28,11 +28,11 @@ def changePopCatMotion():
     if root.popCatStatus == True:
       popCatLabel.configure(image=root.popCat1)
       root.popCatStatus = False
-      time.sleep(0.05)
+      time.sleep(0.07)
     else:
       popCatLabel.configure(image=root.popCat2)
       root.popCatStatus = True
-      time.sleep(0.05)
+      time.sleep(0.1)
   else:
     popCatLabel.configure(image=root.popCat2)
     root.popCatStatus = True
